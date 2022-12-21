@@ -1,0 +1,48 @@
+﻿@model ProyectoFinal.Models.ProductosFactura
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="titulo">Modificar</h1>
+<h4>Producto por Factura</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="IdProducto" class="control-label"></label>
+                <select asp-for="IdProducto" class="form-control" asp-items="ViewBag.IdProducto"></select>
+                <span asp-validation-for="IdProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdFactura" class="control-label"></label>
+                <select asp-for="IdFactura" class="form-control" asp-items="ViewBag.IdFactura"></select>
+                <span asp-validation-for="IdFactura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btnGuardar" style="width:108px;"><i class="fa fa-save"></i> Guardar </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+
+<div>
+    <a class="btn btnRegresar" asp-action="Index"><i class="fa fa-reply"></i> Regresar </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

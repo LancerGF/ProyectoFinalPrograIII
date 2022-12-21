@@ -1,0 +1,44 @@
+﻿@model ProyectoFinal.Models.ProductosFactura
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="titulo">Eliminar</h1>
+
+<h3>Seguro de querer eliminarlo?</h3>
+<br />
+
+<div>
+    <h4 class="subtitulo">Producto por Factura</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdFacturaNavigation.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdFacturaNavigation.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdProductoNavigation.NombreProducto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdProductoNavigation.NombreProducto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+    </dl>
+    
+    <br />
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btnEliminar"><i class="fa fa-trash"></i> Eliminar </button> |
+        <a class="btn btnRegresar" asp-action="Index"><i class="fa fa-reply"></i> Regresar </a>
+    </form>
+</div>
